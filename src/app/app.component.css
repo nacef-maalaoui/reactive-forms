@@ -1,0 +1,11 @@
+.card{
+  margin-top: 100px;
+}
+
+.err{
+  border: 2px solid rgb(239, 22, 94);
+}
+
+.succ{
+  border: 2px solid rgb(5, 136, 20);
+}

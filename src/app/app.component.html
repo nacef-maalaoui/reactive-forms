@@ -1,0 +1,39 @@
+<div class="card w-50 p-4 mx-auto">
+  <h1 class="display-4 text-center">Contact Us</h1>
+  <form [formGroup]="contactform" (ngSubmit)="send()">
+
+    <input formControlName="name" type="text" placeholder="Name" [ngClass]="{'form-control mt-3' : true , 'err' : contactform.controls['name'].invalid && contactform.controls['name'].touched , 'succ' : !contactform.controls['name'].invalid }">
+
+    @if(contactform.controls['name'].invalid && contactform.controls['name'].touched){
+      <p class="text-danger"> invalid name</p>
+    }@else if(contactform.controls['name'].touched) {
+      <p class="text-success"> valid name</p>
+    }
+
+    <input formControlName="email"  type="email" placeholder="Email" [ngClass]="{'form-control mt-3' : true , 'err' : contactform.controls['email'].invalid && contactform.controls['email'].touched }">
+
+    @if(contactform.controls['email'].invalid && contactform.controls['email'].touched){
+      <p class="text-danger"> invalid email</p>
+    }@else if(contactform.controls['email'].touched) {
+      <p class="text-success"> valid email</p>
+    }
+
+    <input formControlName="subject"  type="text" placeholder="Subject" [ngClass]="{'form-control mt-3' : true , 'err' : contactform.controls['subject'].invalid && contactform.controls['subject'].touched }">
+
+    @if(contactform.controls['subject'].invalid && contactform.controls['subject'].touched){
+      <p class="text-danger"> invalid subject</p>
+    }@else if(contactform.controls['subject'].touched) {
+      <p class="text-success"> valid subject</p>
+    }
+
+    <textarea formControlName="message"  name="text" rows="5" placeholder="Message" [ngClass]="{'form-control mt-3' : true , 'err' : contactform.controls['message'].invalid && contactform.controls['message'].touched }" ></textarea>
+
+    @if(contactform.controls['message'].invalid && contactform.controls['message'].touched){
+      <p class="text-danger"> invalid message</p>
+    }@else if(contactform.controls['message'].touched) {
+      <p class="text-success"> valid message</p>
+    }
+
+    <button [disabled]="contactform.invalid" class="form-control btn btn-primary mt-3">Send</button>
+  </form>
+</div>
